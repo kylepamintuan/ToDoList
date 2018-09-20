@@ -22,7 +22,17 @@ class App extends Component {
         item._id = new Date().getTime();
 
         this.setState({
-            list: [item, ...this.state.list]
+            list: [...this.state.list, item]
+        });
+    }
+
+    deleteItem = index => {
+        const { list } = this.state;
+        const listCopy = list.slice();
+        listCopy.splice(index, 1);
+
+        this.setState({
+            list: listCopy
         });
     }
 
@@ -30,7 +40,8 @@ class App extends Component {
         const { list } = this.state;
         return(
             <div className="container">
-                <List data={list}/>
+                <h1 className="center-align">To-Do List</h1>
+                <List data={list} delete={this.deleteItem}/>
                 <AddItem add={this.addItem}/>
             </div>
         )
