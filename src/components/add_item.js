@@ -10,6 +10,11 @@ class AddItem extends Component {
         e.preventDefault();
         
         this.props.add(this.state);
+
+        this.setState({
+            title: '',
+            details: ''
+        })
     }
 
     render(){
@@ -28,8 +33,8 @@ class AddItem extends Component {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col s8 offset-s2">
-                    <button className="btn waves-effect waves-light" type="submit" name="action">Add Item</button>
+                    <div className="col s8 offset-s2 right-align">
+                    <button className="btn waves-effect waves-light green" type="submit" name="action">Add</button>
                     </div>
                 </div>
             </form>

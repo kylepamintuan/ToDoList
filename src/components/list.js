@@ -1,15 +1,13 @@
 import React from 'react';
+import Item from './item';
 
 const List = (props) => {
     const listELements = props.data.map((item, index) => {
-        return(
-            <li className="collection-item" key={item._id}>{item.title}</li>
-        ) 
+        return <Item key={item._id} item={item} delete={() => props.delete(index)}/>
     });
 
     return(
         <ul className="collection with-header">
-            <li className="collection-header"><h3>To-Do List</h3></li>
             {listELements}
         </ul>
     )
